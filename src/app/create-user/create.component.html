@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <form [formGroup] = "userForm">
+        <div class="form-group">
+          <label for="firstname">First name</label>
+          <input type="text" class="form-control" id="firstname" aria-describedby="firstname" 
+          formControlName="firstName" placeholder="Enter your first name" [ngClass]="{ 'is-invalid': userForm.controls.firstName.errors && ( submitted || userForm.controls.firstName.touched) }">
+          <div *ngIf="userForm.hasError('required','firstName')" class="invalid-feedback">
+            firstname is required.
+          </div>
+          <div *ngIf="userForm.hasError('minlength','firstName')" class="invalid-feedback">
+            minimum length 5 chars.
+          </div>
+           
+        
+        </div>
+        <div class="form-group">
+          <label for="lastname">Last name</label>
+          <input type="text" class="form-control" id="lastname" aria-describedby="lastname" 
+          formControlName="lastName" placeholder="Enter your last name" [ngClass]="{ 'is-invalid': userForm.controls.lastName.errors && ( submitted || userForm.controls.lastName.touched)  }">
+          <div *ngIf="userForm.hasError('required','lastName')" class="invalid-feedback">
+            lastname is required.
+          </div>
+          <div *ngIf="userForm.hasError('minlength', 'lastname')" class="invalid-feedback">
+              minimum length 8 chars.
+            </div>
+        </div>
+      </form> 
+      <button type="submit" class="btn btn-primary" (click)="addUser()">Submit</button>
+
+     
+    </div>
+    <div class="col-6">
+
+      <!-- <app-crud-list></app-crud-list> -->
+      <!-- <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users | keyvalue; let i=index">
+            <th scope="row">{{ i }}</th>
+            <td>{{ user.value.firstName }}</td>
+            <td>{{ user.value.lastName }}</td>
+            <td> <button class="btn" (click)="deleteUser(i)"><img src="../../assets/images/baseline-remove_circle-24px.svg" alt="remove" class="img-fluid"></button> </td>
+            <td> <button class="btn" data-toggle="modal" data-target="#crudModal" (click)="selectUser(user.value,i)"><img src="../../assets/images/baseline-check_circle-24px.svg" alt="open" class="img-fluid"></button> </td>
+          </tr>
+        </tbody>
+      </table> -->
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="crudModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" 
+      aria-hidden="true" #frame>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">User Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup] = "userFormModif">
+              <div class="form-group">
+                <label for="firstname">First name</label>
+                <input type="text" class="form-control" id="firstname" aria-describedby="firstname" 
+                formControlName="firstName" placeholder="Enter your first name" [ngClass]="{ 'is-invalid': userFormModif.controls.firstName.errors && ( submitted || userFormModif.controls.firstName.touched) }">
+                <div *ngIf="userFormModif.controls.firstName.errors?.required" class="invalid-feedback">
+                  firstname is required.
+                </div>
+                <div *ngIf="userFormModif.controls.firstName.errors?.minlength" class="invalid-feedback">
+                  minimum length 5 chars.
+                </div>
+                 
+              
+              </div>
+              <div class="form-group">
+                <label for="lastname">Last name</label>
+                <input type="text" class="form-control" id="lastname" aria-describedby="lastname" 
+                formControlName="lastName" placeholder="Enter your last name" [ngClass]="{ 'is-invalid': userFormModif.controls.lastName.errors && ( submitted || userFormModif.controls.lastName.touched)  }">
+                <div *ngIf="userFormModif.controls.lastName.errors?.required" class="invalid-feedback">
+                  lastname is required.
+                </div>
+                <div *ngIf="userFormModif.controls.lastName.errors?.minlength" class="invalid-feedback">
+                    minimum length 8 chars.
+                  </div>
+              </div>
+            </form> 
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateUser()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
