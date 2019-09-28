@@ -16,8 +16,8 @@
               <th scope="row">{{ i }}</th>
               <td>{{ user.firstName }}</td>
               <td>{{ user.lastName }}</td>
-              <td> <button class="btn" (click)="deleteUser(i)"><img src="../../assets/images/baseline-remove_circle-24px.svg" alt="remove" class="img-fluid"></button> </td>
-              <td> <button class="btn" [routerLink]="['../user', i]"><img src="../../assets/images/baseline-check_circle-24px.svg" alt="open" class="img-fluid"></button> </td>
+              <td> <button class="btn" (click)="deleteUser(i)"><i class="fas fw fa-user-times"></i></button> </td>
+              <td> <button class="btn" [routerLink]="['../user', i]"><i class="fas fa-user-edit"></i></button> </td>
             </tr>
           </tbody>
         </table>
